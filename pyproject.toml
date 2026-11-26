@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=64"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,12 +7,21 @@ name = "tts_webui_extension.voice_manager"
 version = "0.1.0"
 description = "Voice Manager extension for TTS WebUI: upload, preview and delete voice reference clips"
 readme = "README.md"
-license = { text = "MIT" }
+authors = [{name = "danangboy13"}]
 requires-python = ">=3.10"
-dependencies = ["gradio"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+# gradio is provided by the TTS WebUI host
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/rsxdalv/tts_webui_extension.voice_manager"
 
 [project.optional-dependencies]
-test = ["pytest"]
+test = ["pytest", "gradio"]
 
 [tool.setuptools.packages.find]
 include = ["tts_webui_extension*"]
