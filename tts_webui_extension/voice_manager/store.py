@@ -74,8 +74,10 @@ def list_files(subdir: str | None) -> list[list[str]]:
             continue
         if os.path.splitext(fname)[1].lower() not in AUDIO_EXTENSIONS:
             continue
-        mtime = datetime.fromtimestamp(os.path.getmtime(fpath)).strftime(
-            "%Y-%m-%d %H:%M"
+        mtime = (
+            datetime.fromtimestamp(os.path.getmtime(fpath))
+            .astimezone()
+            .strftime("%Y-%m-%d %H:%M")
         )
         rows.append([fname, human_size(os.path.getsize(fpath)), mtime])
     return rows
